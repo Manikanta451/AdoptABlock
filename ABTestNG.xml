@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AdodtABlock_Automation" verbose="3" parallel="false">
+
+
+	<test name="AdodtABlock_Automation" preserve-order="true">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.ab.testscripts.TestSuite">
+				<methods>
+				    
+			            
+				</methods>
+
+			</class>
+		</classes>
+	</test>
+	<listeners>
+	    <listener class-name="com.ab.listeners.AnnotationTransformer"/>
+        <listener class-name="com.ab.listeners.TestListener"/>
+		<listener class-name="com.ab.listeners.ExtentReporterNG"/>
+  </listeners>
+  </suite>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [AdodtABlock_Automation]">
+  <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="com.ab.listeners.AnnotationTransformer"/>
+    <listener class-name="com.ab.listeners.TestListener"/>
+    <listener class-name="com.ab.listeners.ExtentReporterNG"/>
+  </listeners>
+  <test name="AdodtABlock_Automation(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.ab.testscripts.TestSuite">
+        <methods>
+          <include name="Updateingprofile"/>
+          <include name="close"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.ab.testscripts.TestSuite -->
+    </classes>
+  </test> <!-- AdodtABlock_Automation(failed) -->
+</suite> <!-- Failed suite [AdodtABlock_Automation] -->

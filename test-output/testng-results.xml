@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[=====Browser Session Started=====]]>
+    </line>
+    <line>
+      <![CDATA[=====Browser Session End=========]]>
+    </line>
+  </reporter-output>
+  <suite name="AdodtABlock_Automation" duration-ms="97925" started-at="2017-06-08T10:46:24Z" finished-at="2017-06-08T10:48:02Z">
+    <groups>
+    </groups>
+    <test name="AdodtABlock_Automation" duration-ms="97925" started-at="2017-06-08T10:46:24Z" finished-at="2017-06-08T10:48:02Z">
+      <class name="com.ab.testscripts.TestSuite">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.ab.testscripts.TestSuite@7817fd62]" name="setUp" is-config="true" duration-ms="22678" started-at="2017-06-08T16:16:24Z" finished-at="2017-06-08T16:16:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[=====Browser Session Started=====]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="BlockRegistration(com.ab.datainitialization.DataInt)[pri:1, instance:com.ab.testscripts.TestSuite@7817fd62]" name="BlockRegistration" duration-ms="60330" started-at="2017-06-08T16:16:49Z" description="BlockRegistration" data-provider="getRegisteraBlock" finished-at="2017-06-08T16:17:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.ab.datainitialization.DataInt@5d465e4b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BlockRegistration -->
+        <test-method status="PASS" signature="close()[pri:0, instance:com.ab.testscripts.TestSuite@7817fd62]" name="close" is-config="true" duration-ms="12142" started-at="2017-06-08T16:17:50Z" finished-at="2017-06-08T16:18:02Z">
+          <reporter-output>
+            <line>
+              <![CDATA[=====Browser Session End=========]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- com.ab.testscripts.TestSuite -->
+    </test> <!-- AdodtABlock_Automation -->
+  </suite> <!-- AdodtABlock_Automation -->
+</testng-results>
