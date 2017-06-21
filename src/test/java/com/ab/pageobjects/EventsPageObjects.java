@@ -65,5 +65,42 @@ public class EventsPageObjects extends CommonBase{
 	
 	@FindBy(how = How.XPATH, using = "/html/body/div[2]/form/div[4]/div[2]/div[1]/div/div[2]/div[7]/a[1]")	
 	public static WebElement eventsave;
+	
+	//------- Edit event Page objects-----//
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(.,'Edit')]")	
+	public static WebElement eventedit;
+	
+	@FindBy(how = How.XPATH, using = "	/html/body/div[2]/form/div[4]/div[2]/div[1]/div/div[2]/div[7]/a[1]")	
+	public static WebElement eventupdate;
 
+	//------ add Clean Up page Objects----//
+	
+	@FindBy(how = How.XPATH, using = "/html/body/div[2]/form/div[4]/div[2]/div[1]/div/div[3]/div/div/p[4]/a[1]")	
+	public static WebElement addcleanup;
+	
+	@FindBy(how = How.ID, using = "ctl00_ContentPlaceHolder1_txt_Dates")	
+	public static WebElement cleanupstartdate;
+	
+	@FindBy(how = How.ID, using = "ctl00_ContentPlaceHolder1_txt_NofoVolunteers")	
+	public static WebElement cleanupVolunteers;
+	
+	@FindBy(how = How.ID, using = "ctl00_ContentPlaceHolder1_txt_NoofyouthU18")	
+	public static WebElement cleanupYouthunder18;
+	
+	@FindBy(how = How.ID, using = "ctl00_ContentPlaceHolder1_txt_NoofBags_litter_Trash")	
+	public static WebElement cleanupBagsofLitterTrashcollected;
+	
+	@FindBy(how = How.ID, using = "ctl00_ContentPlaceHolder1_txt_NoofTires")	
+	public static WebElement cleanuptire;
+	
+	@FindBy(how = How.ID, using = "ctl00_ContentPlaceHolder1_txt_StormDrains")	
+	public static WebElement cleanupStormDrains;
+	
+	@FindBy(how = How.XPATH, using = "/html/body/div[2]/form/div[4]/div[2]/div[1]/div/div[1]/div[15]/span/table")	
+	public static WebElement cleanupMiscellaneousActivities;
+	
+	@FindBy(how = How.ID, using = "ctl00_ContentPlaceHolder1_btn_Submit")	
+	public static WebElement savecleanup;
+	
 }

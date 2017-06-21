@@ -111,6 +111,36 @@ public class Util {
 	return events;
     }
 
+	public static LinkedList<Object[]> getCleanup(String sheetName1,Xls_Reader xls) {
+		LinkedList<Object[]> cleanup = new LinkedList<Object[]>();
+		try {
+			DataInt dataInitialization = null;
+			int dataStartRowNum = 3;
+			int totalRows = 0;
+			while (!xls.getCellData(sheetName1, 0, dataStartRowNum + totalRows).equals("")) {		
+				totalRows++;
+			}
+			for (int i = dataStartRowNum; i <= (dataStartRowNum + totalRows); i++) {
+				dataInitialization = new DataInt();
+				Object obj[] = new Object[1];
+				if (xls.getCellData(sheetName1, 0, i).equalsIgnoreCase("Cleanup")) {
+					dataInitialization.setVolunteers(xls.getCellData(sheetName1, 1, i));
+					dataInitialization.setYouthunder18(xls.getCellData(sheetName1, 2, i));
+					dataInitialization.setBagsofLitterTrash(xls.getCellData(sheetName1, 3, i));
+					dataInitialization.setTires(xls.getCellData(sheetName1, 4, i));
+					dataInitialization.setStormDrains(xls.getCellData(sheetName1, 5, i));
+					dataInitialization.setMiscellaneousActivitiesDescription(xls.getCellData(sheetName1, 6, i));
+					obj[0] = dataInitialization;
+					cleanup.add(obj);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			LOG.info(e.toString());
+		}
+		return cleanup;
+	    }
+	
 	public static LinkedList<Object[]> getNews(String sheetName1,Xls_Reader xls) {
 	LinkedList<Object[]> news = new LinkedList<Object[]>();
 	try {
@@ -182,7 +212,7 @@ public class Util {
 			dataInitialization = new DataInt();
 			Object obj[] = new Object[1];
 			if (xls.getCellData(sheetName1, 0, i).equalsIgnoreCase("MyProfile")) {
-				dataInitialization.setFirstName(xls.getCellData(sheetName1, 1, 2));
+				dataInitialization.setFirstName(xls.getCellData(sheetName1, 1, i));
 				dataInitialization.setLastName(xls.getCellData(sheetName1, 2, i));
 				dataInitialization.setAddressLine1(xls.getCellData(sheetName1, 3, i));
 				dataInitialization.setAddressLine2(xls.getCellData(sheetName1, 4, i));

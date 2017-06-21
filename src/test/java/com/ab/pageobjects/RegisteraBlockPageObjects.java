@@ -17,7 +17,10 @@ public class RegisteraBlockPageObjects extends CommonBase{
 
 	@FindBy(how = How.XPATH, using = "/html/body/div[2]/form/div[4]/div[2]/div[1]/div/ul/li[1]/a/div/img")	
 	public static WebElement adoptablock;
-
+	
+	@FindBy(how = How.XPATH, using = "/html/body/div[2]/form/div[4]/div[2]/div[1]/div/div[2]/div[1]/a")	
+	public static WebElement newblockregistration;
+	
 	@FindBy(how = How.XPATH, using = "//div[@id='googft-mapCanvas']/div/div/div/div[3]/div")	
 	public static WebElement map;
 

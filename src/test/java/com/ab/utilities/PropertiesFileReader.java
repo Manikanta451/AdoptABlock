@@ -7,8 +7,8 @@ import java.util.Properties;
 /**
  * 
  * 
- * This Class is used to get the instance of properties from
- * application.properties file
+ * This Class is used to get the instance of properties from application.properties file
+ * 
  * 
  * 
  */
@@ -27,7 +27,7 @@ public class PropertiesFileReader {
 			properties.load(in);
 		   }catch (IOException e) {
 			e.printStackTrace();
-		}	
+		    }	
 	}
 	private PropertiesFileReader(){
 	}

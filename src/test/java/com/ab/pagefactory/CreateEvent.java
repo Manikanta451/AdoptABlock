@@ -44,16 +44,19 @@ public class CreateEvent extends EventsPageObjects{
 		eventimage.click();
 		waitForSeconds(2);
 		fileupload(imagepath + "\\images\\eventimage.jpg");
-		waitForSeconds(7);
+		waitForSeconds(5);
 		senddescription(dataInt);
-		//eventsave.click();	
+		waitForSeconds(3);
+		eventsave.click();
+		waitForSeconds(3);
+		checkAlert();
 	}
 	
 	public void senddescription(DataInt dataInt)throws Exception{
 		Actions actions = new Actions(driver);
 		actions.moveToElement(eventdesc);
 		actions.click();
-		waitForSeconds(4);
+		waitForSeconds(2);
 		actions.sendKeys(dataInt.getDescription());
 		actions.build().perform();
 	}

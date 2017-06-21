@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AdodtABlock_Automation" verbose="3" parallel="false">
+<suite name="AdoptaBlock_Automation" verbose="3" parallel="false">
 
 
-	<test name="AdodtABlock_Automation" preserve-order="true">
+	<test name="AdoptaBlock_Automation" preserve-order="true">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.ab.testscripts.TestSuite">

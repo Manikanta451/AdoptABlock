@@ -25,10 +25,14 @@ public class ExcelSheetObjects {
 		    	   
 	//Test scenario's id of TestCasesSheet
 		    
-		    public static final String BlockRegistration="BlockRegistration";
+		    public static final String BlockRegistrationWithoutLogin="BlockRegistrationWithoutLogin";
 		    public static final String LoginWithValidCredentials="Login";
+		    public static final String BlockRegistrationWithLogin="BlockRegistrationWithLogin";
 		    public static final String CreateEvent="CreateEvent";
+		    public static final String EditEvent="EditEvent";
+		    public static final String AddCleanUps="AddCleanUps";
 		    public static final String CreateNews="CreateNews";
+		    public static final String EditNews="EditNews";
 		    public static final String ContactUsForm="ContactUsForm";
 		    public static final String ProfileUpdate="ProfileUpdate";
 		    public static final String AccountLogout="AccountLogout";

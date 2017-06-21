@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -31,8 +32,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -60,6 +63,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.ab.utilities.PropertiesFileReader;
 
 /**
@@ -76,8 +80,9 @@ public class CommonBase {
 	public String browserName;
 	public String sikulipath = System.getProperty("user.dir");
 	public String imagepath  = System.getProperty("user.dir");
-	public static String reportpath = System.getProperty("user.dir")+ System.getProperty("file.separator")+ "test-output"+ System.getProperty("file.separator")+ "TestReport.xlsx";
-	public static String reportpath1 = System.getProperty("user.dir")+ System.getProperty("file.separator")+ "test-output"+ System.getProperty("file.separator")+ "Extent.html";
+	public static String reportpath1 = System.getProperty("user.dir")+ System.getProperty("file.separator")+ "test-output"+ System.getProperty("file.separator")+ "TestReport.xlsx";
+	public static String reportpath2 = System.getProperty("user.dir")+ System.getProperty("file.separator")+ "test-output"+ System.getProperty("file.separator")+ "Extent.html";
+	public static String reportpath3 = System.getProperty("user.dir")+ System.getProperty("file.separator")+ "src/main/java/com/ab/test/data"+ System.getProperty("file.separator")+ "TestCases.xlsx";
 	public String screenshot = System.getProperty("user.dir") + "_Screenshot";
 	public String str;
 	public String snum;
@@ -99,7 +104,7 @@ public class CommonBase {
 	public int pageLoadTimeOut = Integer.parseInt(PropertiesFileReader.readvalueOfKey("page.Load.TimeOut"))	;
 	public static final Logger LOG = Logger.getLogger(CommonBase.class);
 	String[] dialog;
-
+	
 	@SuppressWarnings("static-access")//to suppress warnings relative to incorrect static access
 	protected CommonBase(WebDriver driver) {
 		if (this.driver == null) {
@@ -198,9 +203,7 @@ public class CommonBase {
 			//System.setProperty("webdriver.edge.driver",new File (serverpath).getAbsolutePath());
 			driver = new EdgeDriver();
 			driver.get(url);			          	
-		}/*else {
-			throw new IllegalArgumentException("The Browser Type is Undefined");
-		}*/
+		}
 		driver.manage().deleteAllCookies();
      	driver.manage().timeouts().pageLoadTimeout(pageLoadTimeOut, TimeUnit.SECONDS);
      	driver.manage().window().maximize();
@@ -459,11 +462,11 @@ public class CommonBase {
 			return s;
 			}
 	
-	public static void emailreport(){		 
+	public static void emailreport() throws Exception{		 
 		 sendPDFReportByGMail("seleniumautomatonreports@gmail.com", "1111111!", "mani6747@gmail.com", "Adopt A Block Automation Report", "");
 	 }	 
 	  
-	private static void sendPDFReportByGMail(String from, String pass, String to, String subject, String body) {
+	private static void sendPDFReportByGMail(String from, String pass, String to, String subject, String body) throws Exception {
 		 System.out.println("Waiting for generating Testreport....");
 		 System.setProperty("javax.net.ssl.trustStore", "C://Program Files//Java//jre1.8.0_101//lib//security//cacerts");
 		 System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
@@ -486,9 +489,8 @@ public class CommonBase {
 
 				}
 			});			 
-		 MimeMessage message = new MimeMessage(session);
-		 
-		try {
+		 MimeMessage message = new MimeMessage(session);		 
+		 try {
 			 //Set from address
 			 message.setFrom(new InternetAddress(from));
 			 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
@@ -499,19 +501,15 @@ public class CommonBase {
 			 objMessageBodyPart.setText("Hi,"
 			 		+ "\n"
 			 		+ "\n"
-			 		+ "      Please Find The Attached Automation Report File download and then open it!"
+			 		+ "      Please Find The Attached Automation Report Files please download and then open it!"
 			 		+ "\n"
 			 		+ "\n");
 			 Multipart multipart = new MimeMultipart();
 			 multipart.addBodyPart(objMessageBodyPart);
 			 objMessageBodyPart = new MimeBodyPart();
-			 String filename = reportpath;  
-			 File file = new File(filename);
-			 //Create data source to attach the file in mail
-			 DataSource source = new FileDataSource(file);
-			 objMessageBodyPart.setDataHandler(new DataHandler(source));
-			 objMessageBodyPart.setFileName(file.getName());
-			 multipart.addBodyPart(objMessageBodyPart);
+			 addAttachment(multipart, reportpath1);
+			 addAttachment(multipart, reportpath2);
+			 addAttachment(multipart, reportpath3);
 			 message.setContent(multipart);
 			 Transport transport = session.getTransport("smtp");
 			 transport.connect(host, from, pass);
@@ -520,83 +518,20 @@ public class CommonBase {
 		}
 		catch (AddressException ae) {		 
 			ae.printStackTrace();		 
-		}
-			 
+		} 
 		catch (MessagingException me) {		 
 			me.printStackTrace();		 
 		}
 		System.out.println("Testreport has been Sent Successfully....");
 }
 	 	 
-	public static void emailreport1(){		 
-		 sendPDFReportByGMail1("seleniumautomatonreports@gmail.com", "1111111!", "mani6747@gmail.com", "Adopt A Block Automation Report", "");
-	 }	 
-	  
-	private static void sendPDFReportByGMail1(String from, String pass, String to, String subject, String body) {
-		 System.out.println("Waiting for generating Extentreport....");
-		 System.setProperty("javax.net.ssl.trustStore", "C://Program Files//Java//jre1.8.0_101//lib//security//cacerts");
-		 System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
-		 Properties props = System.getProperties();		 
-		 String host = "smtp.gmail.com";
-	     props.put("mail.smtp.starttls.enable", "true");
-	     props.put("mail.smtp.host", host);
-	     props.put("mail.smtp.user", from);
-	     props.put("mail.smtp.password", pass);
-	     props.put("mail.smtp.auth", "true");	  
-	     props.put("mail.smtp.socketFactory.port", "465");  
-	     props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");   
-	     props.put("mail.smtp.auth", "true");  
-	     props.put("mail.smtp.port", "465");  
-		 Session session = Session.getDefaultInstance(props,new javax.mail.Authenticator() {
-			 
-				protected PasswordAuthentication getPasswordAuthentication() {
-
-				return new PasswordAuthentication("from","pass");
-
-				}
-			});			 
-		 MimeMessage message = new MimeMessage(session);
-		 
-		try {
-			 //Set from address
-			 message.setFrom(new InternetAddress(from));
-			 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-			 //Set subject
-			 message.setSubject(subject);
-			 message.setText(body);
-			 BodyPart objMessageBodyPart = new MimeBodyPart();
-			 objMessageBodyPart.setText("Hi,"
-			 		+ "\n"
-			 		+ "\n"
-			 		+ "      Please Find The Attached Extent Automation Report File download and then open it!"
-			 		+ "\n"
-			 		+ "\n");
-			 Multipart multipart = new MimeMultipart();
-			 multipart.addBodyPart(objMessageBodyPart);
-			 objMessageBodyPart = new MimeBodyPart();
-			 String filename = reportpath1;  
-			 File file = new File(filename);
-			 //Create data source to attach the file in mail
-			 DataSource source = new FileDataSource(file);
-			 objMessageBodyPart.setDataHandler(new DataHandler(source));
-			 objMessageBodyPart.setFileName(file.getName());
-			 multipart.addBodyPart(objMessageBodyPart);
-			 message.setContent(multipart);
-			 Transport transport = session.getTransport("smtp");
-			 transport.connect(host, from, pass);
-			 transport.sendMessage(message, message.getAllRecipients());
-			 transport.close();		 
-		}
-		catch (AddressException ae) {		 
-			ae.printStackTrace();		 
-		}
-			 
-		catch (MessagingException me) {		 
-			me.printStackTrace();		 
-		}
-		System.out.println("Extentreport has been Sent Successfully....");
-}
-	 				
+	private static void addAttachment(Multipart multipart, String filename)throws Exception{
+	    DataSource source = new FileDataSource(filename);
+	    BodyPart messageBodyPart = new MimeBodyPart();        
+	    messageBodyPart.setDataHandler(new DataHandler(source));
+	    messageBodyPart.setFileName(filename);
+	    multipart.addBodyPart(messageBodyPart);
+	}
     public void  systemdateselect(){				
 				try {
 					DateFormat dateformat = new SimpleDateFormat("d"); //date format

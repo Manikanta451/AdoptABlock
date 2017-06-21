@@ -38,6 +38,8 @@ public class DataInt implements Serializable {
 				
 					public String Signuppassword="";
 					
+					
+					
 			// ---Login------//
 					
 					public String Email ="";
@@ -59,6 +61,18 @@ public class DataInt implements Serializable {
 					public String WebsiteURL="";
 					
 					public String Description ="";
+					
+					public String Volunteers="";
+					
+					public String  Youthunder18="";
+					
+					public String BagsofLitterTrash="";
+					
+					public String Tires="";
+					
+					public String StormDrains=""; 
+					
+					public String MiscellaneousActivitiesDescription="";
 					
 			//---News------//		
 					
@@ -242,7 +256,44 @@ public class DataInt implements Serializable {
 					public void setDescription(String description) {
 						Description = description;
 					}
-	 				
+					public String getVolunteers() {
+						return Volunteers;
+					}
+					public void setVolunteers(String volunteers) {
+						Volunteers = volunteers;
+					}
+					public String getYouthunder18() {
+						return Youthunder18;
+					}
+					public void setYouthunder18(String youthunder18) {
+						Youthunder18 = youthunder18;
+					}
+					public String getBagsofLitterTrash() {
+						return BagsofLitterTrash;
+					}
+					public void setBagsofLitterTrash(String bagsofLitterTrash) {
+						BagsofLitterTrash = bagsofLitterTrash;
+					}
+					public String getTires() {
+						return Tires;
+					}
+					public void setTires(String tires) {
+						Tires = tires;
+					}
+					public String getStormDrains() {
+						return StormDrains;
+					}
+					public void setStormDrains(String stormDrains) {
+						StormDrains = stormDrains;
+					}
+					public String getMiscellaneousActivitiesDescription() {
+						return MiscellaneousActivitiesDescription;
+					}
+					public void setMiscellaneousActivitiesDescription(
+							String miscellaneousActivitiesDescription) {
+						MiscellaneousActivitiesDescription = miscellaneousActivitiesDescription;
+					}
+					
 	     //------News Getter And Setter Methods---//
 					
 					public String getTitleforNews() {

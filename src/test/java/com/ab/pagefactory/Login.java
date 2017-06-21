@@ -21,6 +21,5 @@ public class Login extends LoginPageObjects{
 			waitForSeconds(2);
 			Loginbutton.click();
 			LOG.info("Adopter Successfully Log In in to their account");
-	  }	
-
+	  }		
 }

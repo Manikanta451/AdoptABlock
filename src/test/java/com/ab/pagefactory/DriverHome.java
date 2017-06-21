@@ -22,10 +22,13 @@ public class DriverHome extends CommonBase {
 
 	}
 
-	public BlockRegistration getadoptblock(){
-		return PageFactory.initElements(driver, BlockRegistration.class);
+	public BlockRegistrationWithoutLogin getadoptblock(){
+		return PageFactory.initElements(driver, BlockRegistrationWithoutLogin.class);
 	}
 	
+	public BlockRegistrationWithLogin getnewblock(){
+		return PageFactory.initElements(driver, BlockRegistrationWithLogin.class);
+	}
 	public Login getLogin(){
 		return PageFactory.initElements(driver, Login.class);
 	}
@@ -34,8 +37,20 @@ public class DriverHome extends CommonBase {
 		return PageFactory.initElements(driver, CreateEvent.class);
 	}
 	
+	public EditEvent geteventedit(){
+		return PageFactory.initElements(driver, EditEvent.class);
+	}
+	
+	public AddCleanUps getcleanup(){
+		return PageFactory.initElements(driver, AddCleanUps.class);
+	}
+	
 	public CreateNews getnews(){
 		return PageFactory.initElements(driver, CreateNews.class);
+	}
+	
+	public EditNews getnewsedit(){
+		return PageFactory.initElements(driver, EditNews.class);
 	}
 
 	public ContactUs getcontact(){

@@ -21,6 +21,6 @@ public class ForgotPassword  extends ForgotPasswordPageObjects{
 			Submitforforget.click();
 			waitForSeconds(3);
 			checkAlert();
-			LOG.info("Forgot password link has been sent successfully to registered email address");
+			LOG.info("Password has been sent successfully to registered email address");
        }
 }

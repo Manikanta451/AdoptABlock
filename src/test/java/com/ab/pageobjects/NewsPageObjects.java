@@ -47,5 +47,13 @@ public class NewsPageObjects extends CommonBase {
 	
 	@FindBy(how = How.XPATH, using = "/html/body/div[2]/form/div[4]/div[2]/div[1]/div/div[2]/div[4]/a[1]")	
 	public static WebElement savenews;
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(.,'Edit')]")	
+	public static WebElement editnews;
+	
+	@FindBy(how = How.XPATH, using = "/html/body/div[2]/form/div[4]/div[2]/div[1]/div/div[2]/div[4]/a[1]")	
+	public static WebElement updatenews;
+	
+	
 
 }

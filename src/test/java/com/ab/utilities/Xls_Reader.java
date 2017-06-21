@@ -59,7 +59,6 @@ public class Xls_Reader {
     
     
     // returns the data from a cell00000
-    @SuppressWarnings("deprecation")
 	public String getCellData(String sheetName,String colName,int rowNum){
         try
         {

@@ -32,17 +32,19 @@ public class CreateNews extends NewsPageObjects{
 				newsimage.click();
 				waitForSeconds(1);
 				fileupload(imagepath + "\\images\\newsimage.jpg");
-				waitForSeconds(7);
+				waitForSeconds(5);
 				senddescription(dataInt);
 				waitForSeconds(3);
-				//savenews.click();		
+				savenews.click();	
+				waitForSeconds(3);
+				checkAlert();
 	}
 	
 	public void senddescription(DataInt dataInt)throws Exception{
 				Actions actions = new Actions(driver);
 				actions.moveToElement(newsdesc);
 				actions.click();
-				waitForSeconds(4);
+				waitForSeconds(2);
 				actions.sendKeys(dataInt.getDescription());
 				actions.build().perform();
 			}
